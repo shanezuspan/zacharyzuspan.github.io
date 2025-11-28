@@ -1,8 +1,6 @@
 import React from 'react';
 import PageTransition from '../components/PageTransition';
 import TicketCard from '../components/TicketCard';
-// Import the headshot image from assets folder
-import zacharyHeadshot from '../assets/zachary-headshot.jpg';
 
 const Home = () => {
   return (
@@ -17,11 +15,24 @@ const Home = () => {
           <div className="relative group">
             <div className="absolute -inset-2 bg-gradient-to-r from-park-magenta to-park-yellow rounded-[2rem] blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
             <div className="relative w-full aspect-[3/4] bg-gray-200 rounded-[1.5rem] border-4 border-white shadow-xl overflow-hidden">
-              {/* Using the imported headshot image */}
               <img 
-                src={zacharyHeadshot} 
-                alt="Zachary Zuspan" 
+                src="./zachary-headshot.jpg" 
+                alt="Zachary Zuspan - Professional Headshot" 
                 className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  const parent = e.target.parentElement;
+                  if (parent) {
+                    parent.innerHTML = `
+                      <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-park-magenta/20 to-park-yellow/20">
+                        <div class="text-center">
+                          <div class="text-6xl mb-4">👨‍💼</div>
+                          <div class="text-park-deep-blue font-bold">Photo Coming Soon</div>
+                        </div>
+                      </div>
+                    `;
+                  }
+                }}
               />
             </div>
             <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-full text-xs font-bold text-park-deep-blue shadow-lg">

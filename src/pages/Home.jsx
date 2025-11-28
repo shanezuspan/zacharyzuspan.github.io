@@ -1,6 +1,8 @@
 import React from 'react';
 import PageTransition from '../components/PageTransition';
 import TicketCard from '../components/TicketCard';
+// Import the headshot image from assets folder
+import zacharyHeadshot from '../assets/zachary-headshot.jpg';
 
 const Home = () => {
   return (
@@ -14,11 +16,14 @@ const Home = () => {
         <div className="lg:w-1/3 w-full">
           <div className="relative group">
             <div className="absolute -inset-2 bg-gradient-to-r from-park-magenta to-park-yellow rounded-[2rem] blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
-            <img 
-              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" 
-              alt="Zachary Zuspan Professional Headshot Placeholder" 
-              className="relative w-full aspect-[3/4] object-cover rounded-[1.5rem] border-4 border-white shadow-xl"
-            />
+            <div className="relative w-full aspect-[3/4] bg-gray-200 rounded-[1.5rem] border-4 border-white shadow-xl overflow-hidden">
+              {/* Using the imported headshot image */}
+              <img 
+                src={zacharyHeadshot} 
+                alt="Zachary Zuspan" 
+                className="w-full h-full object-cover"
+              />
+            </div>
             <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-full text-xs font-bold text-park-deep-blue shadow-lg">
               Zachary Zuspan
             </div>
